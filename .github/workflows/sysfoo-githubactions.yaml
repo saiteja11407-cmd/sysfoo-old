@@ -20,4 +20,4 @@ jobs:
         run: mvn package
 
       - name: maven-packaging-warfile-list
-        run: ls -lrt
+        run: ls -lrt target
