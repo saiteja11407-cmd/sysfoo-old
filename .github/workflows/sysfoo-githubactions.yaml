@@ -1,0 +1,23 @@
+name: sysfoo-githubactions-pipeline
+on: [push]
+jobs:
+  sysfoo-ci-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: hello-world
+        run: echo "Hello sys-foo application"
+        
+      - name: code-checkout
+        uses: actions/checkout@v6.0.2
+        
+      - name: maven-test
+        run: mvn test
+        
+      - name: maven-clean
+        run: mvn clean
+        
+      - name: maven-package
+        run: mvn package
+
+      - name: maven-packaging-warfile-list
+        run: ls -lrt
