@@ -1,5 +1,8 @@
 name: sysfoo-githubactions-pipeline
-on: [push]
+on:
+  push:
+    branches:
+      - 'master'
 jobs:
   sysfoo-ci-job:
     runs-on: ubuntu-latest
@@ -21,3 +24,10 @@ jobs:
 
       - name: maven-packaging-warfile-list
         run: ls -lrt target
+
+      - name: upload-artifact
+        run: actions/upload-artifact@v6.0.0
+        with:
+          name: sysfoo-artifact
+          path: target/*.war
+          
